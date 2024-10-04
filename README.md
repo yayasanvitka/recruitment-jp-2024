@@ -22,7 +22,7 @@ Maksimal 7 Hari setelah soal diberikan. **Lebih cepat lebih baik**
 - Understand MySQL
 - JavaScript
 
-### Detail Aplikasi
+### Detail Tentang Aplikasi
 
 <hr>
 
@@ -31,19 +31,19 @@ Maksimal 7 Hari setelah soal diberikan. **Lebih cepat lebih baik**
 Aplikasi ini digunakan untuk pendataan dan sudah ada fitur berikut:
 
 1. CRUD untuk Supplier
-   - Sudah terdapat operasi Create, Read, Update, dan Delete untuk Supplier.
+   - Terdapat operasi Create, Read, Update, dan Delete untuk Supplier.
 
 2. CRUD untuk Kategori
-   - Sudah terdapat operasi Create, Read, Update, dan Delete untuk Kategori.
+   - Terdapat operasi Create, Read, Update, dan Delete untuk Kategori.
 
 3. CRUD untuk Produk
-   - Sudah terdapat operasi Create, Read, Update, dan Delete untuk Produk.
+   - Terdapat operasi Create, Read, Update, dan Delete untuk Produk.
    - Pada form produk, dapat memilih Supplier dan Kategori.
    - Setiap produk terhubung dengan satu Supplier dan satu Kategori.
 
-4. CRUD untuk Warehouse (Ini yang didikerjakan)
-   - Implementasikan operasi Create, Read, Update, dan Delete untuk Warehouse.
-   - Tambahkan fitur untuk mengelola produk di setiap warehouse:
+4. CRUD untuk Warehouse (Challenge)
+   - Terdapat operasi Create, Read, Update, dan Delete untuk Warehouse.
+   - Fitur untuk mengelola produk di setiap warehouse:
      **a.** Menambahkan produk ke warehouse; 
      **b.** Menghapus produk dari warehouse; 
      **c.** Menampilkan daftar produk yang tersedia di setiap warehouse.
@@ -51,7 +51,7 @@ Aplikasi ini digunakan untuk pendataan dan sudah ada fitur berikut:
 ### Challenge Detail
 
 <hr>
-Kamu diminta menggunakan **BackPack** untuk membuat fitur no 4 pada 'Detail Tentang Aplikasi' dengan detail:
+Kamu diminta menggunakan BACKPACK untuk membuat fitur no 4 pada 'Detail Tentang Aplikasi' dengan detail:
 
 1. Buat Migrasi, Model dan CRUD untuk Warehouses. Tabel ini hanya memiliki column `name` selain primary dan timestamp.
 2. Relasikan products dengan warehouses (implementasikan relasi database dan CRUD,_many-to-many_) dan intermediate
@@ -61,8 +61,7 @@ Kamu diminta menggunakan **BackPack** untuk membuat fitur no 4 pada 'Detail Tent
 
 Bonus Quest:
 
-5. Buat API untuk data products dengan format API: `{“data”:[[…], […], …], “count”:X}`
-menggunakan Backpack
+5. Buat API untuk data products dengan format API: `{“data”:[[…], […], …], “count”:X}` menggunakan BACKPACK
 
 Silahkan fork repositori ini, jalankan migrasi database, dan seeder untuk user.
 

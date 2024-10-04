@@ -44,9 +44,9 @@ Aplikasi ini digunakan untuk pendataan dan sudah ada fitur berikut:
 4. CRUD untuk Warehouse (Ini yang didikerjakan)
    - Implementasikan operasi Create, Read, Update, dan Delete untuk Warehouse.
    - Tambahkan fitur untuk mengelola produk di setiap warehouse:
-     a. Menambahkan produk ke warehouse.
-     b. Menghapus produk dari warehouse.
-     c. Menampilkan daftar produk yang tersedia di setiap warehouse.
+     **a.** Menambahkan produk ke warehouse; 
+     **b.** Menghapus produk dari warehouse; 
+     **c.** Menampilkan daftar produk yang tersedia di setiap warehouse.
 
 ### Challenge Detail
 

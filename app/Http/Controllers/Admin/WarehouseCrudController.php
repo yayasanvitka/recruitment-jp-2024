@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Requests\WarehouseRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 /**
  * Class WarehouseCrudController
@@ -46,6 +47,47 @@ class WarehouseCrudController extends CrudController
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
+
+        CRUD::addColumn([
+            'name' => 'products',
+            'label' => 'Products',
+            'type' => 'select_multiple',
+        ]);
+    }
+
+    protected function setupShowOperation()
+    {
+        CRUD::addClause('withCount', ['products']);
+        CRUD::addColumns([
+            [
+                'name' => 'name',
+                'label' => 'Name',
+                'type' => 'text',
+            ],
+            [
+                'name' => 'products',
+                'label' => 'Products',
+            ],
+            [
+                'name' => 'products_count',
+                'label' => 'Products Count',
+                'type' => 'number',
+                'wrapper' => [
+                    'element' => 'span',
+                    'class' => 'badge',
+                ],
+            ],
+            [
+                'name' => 'created_at',
+                'label' => 'Created',
+                'type' => 'text',
+            ],
+            [
+                'name' => 'updated_at',
+                'label' => 'Updated',
+                'type' => 'text',
+            ]
+        ]);
     }
 
     /**

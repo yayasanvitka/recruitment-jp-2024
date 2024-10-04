@@ -4,3 +4,4 @@
 <x-backpack::menu-item title="Suppliers" icon="la la-industry" :link="backpack_url('supplier')" />
 <x-backpack::menu-item title="Categories" icon="la la-icons" :link="backpack_url('category')" />
 <x-backpack::menu-item title="Products" icon="la la-layer-group" :link="backpack_url('product')" />
+<x-backpack::menu-item title="Warehouses" icon="la la-warehouse" :link="backpack_url('warehouse')" />

@@ -22,37 +22,37 @@ Maksimal 7 Hari setelah soal diberikan. **Lebih cepat lebih baik**
 - Understand MySQL
 - JavaScript
 
-### Detail Tentang Aplikasi
+### Tentang Aplikasi
 
 <hr>
 
-Aplikasi ini adalah aplikasi untuk pendataan produk dan memiliki fitur sebagai berikut:
+![image](https://github.com/user-attachments/assets/196777aa-b38b-47f2-9713-d396cd5c58b3)
 
-1. CRUD untuk Supplier
-   - Implementasikan operasi Create, Read, Update, dan Delete untuk Supplier.
+Aplikasi ini digunakan untuk pendataan dan sudah ada fitur berikut:
 
-2. CRUD untuk Kategori
-   - Implementasikan operasi Create, Read, Update, dan Delete untuk Kategori.
+A. CRUD untuk Supplier
+   - Sudah terdapat operasi Create, Read, Update, dan Delete untuk Supplier.
 
-3. CRUD untuk Produk
-   - Implementasikan operasi Create, Read, Update, dan Delete untuk Produk.
-   - Pada form produk, sertakan field untuk memilih Supplier dan Kategori.
-   - Pastikan setiap produk terhubung dengan satu Supplier dan satu Kategori.
+B. CRUD untuk Kategori
+   - Sudah terdapat operasi Create, Read, Update, dan Delete untuk Kategori.
 
-4. CRUD untuk Warehouse
+C. CRUD untuk Produk
+   - Sudah terdapat operasi Create, Read, Update, dan Delete untuk Produk.
+   - Pada form produk, dapat memilih Supplier dan Kategori.
+   - Setiap produk terhubung dengan satu Supplier dan satu Kategori.
+
+### Challenge Detail
+
+<hr>
+Kamu diminta untuk membuat 
+CRUD untuk Warehouse
    - Implementasikan operasi Create, Read, Update, dan Delete untuk Warehouse.
    - Tambahkan fitur untuk mengelola produk di setiap warehouse:
      a. Menambahkan produk ke warehouse.
      b. Menghapus produk dari warehouse.
      c. Menampilkan daftar produk yang tersedia di setiap warehouse.
 
-### Challenge Detail
-
-<hr>
-
-Silahkan fork repositori ini, jalankan migrasi database, dan seeder untuk user.
-
-Lakukan <strong>Pull Request</strong> untuk challenge di bawah ini:
+dengan detail:
 
 1. Buat Migrasi, Model dan CRUD untuk Warehouses. Tabel ini hanya memiliki column `name` selain primary dan timestamp.
 2. Relasikan products dengan warehouses (implementasikan relasi database dan CRUD,_many-to-many_) dan intermediate
@@ -63,6 +63,10 @@ Lakukan <strong>Pull Request</strong> untuk challenge di bawah ini:
 Bonus Quest:
 
 5. Buat API untuk data products dengan format API: `{“data”:[[…], […], …], “count”:X}`
+
+Silahkan fork repositori ini, jalankan migrasi database, dan seeder untuk user.
+
+Lakukan <strong>Pull Request</strong> untuk challenge di bawah ini:
 
 ### Rules Tambahan
 

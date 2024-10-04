@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Warehouse;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends Model
+class Warehouse extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -18,7 +18,7 @@ class Product extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'products';
+    protected $table = 'warehouses';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -36,9 +36,10 @@ class Product extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function warehouses()
+
+    public function products()
     {
-        return $this->belongsToMany(Warehouse::class);
+        return $this->belongsToMany(Product::class, 'product_warehouse');
     }
 
     /*

@@ -28,6 +28,7 @@ class ProductRequest extends FormRequest
             'code' => 'required|unique:products,code,'.$this->id,
             'name' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
+            'supplier_id' => 'required|exists:suppliers,id',
         ];
     }
 

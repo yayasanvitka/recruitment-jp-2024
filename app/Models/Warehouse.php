@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Product;
+use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Warehouse extends Model
 {
@@ -35,6 +36,11 @@ class Warehouse extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_warehouse');
+    }
 
     /*
     |--------------------------------------------------------------------------

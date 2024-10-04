@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use App\Http\Requests\WarehouseRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -62,6 +63,15 @@ class WarehouseCrudController extends CrudController
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');
          */
+
+        CRUD::field([
+            'label' => "Products",
+            'type' => 'select_multiple',
+            'name' => 'products', 
+            'entity' => 'products', 
+            'attribute' => 'name',
+            'pivot' => true,
+        ]);
     }
 
     /**
@@ -73,5 +83,14 @@ class WarehouseCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+
+        CRUD::field([
+            'label' => "Products",
+            'type' => 'select_multiple',
+            'name' => 'products', 
+            'entity' => 'products', 
+            'attribute' => 'name',
+            'pivot' => true,
+        ]);
     }
 }

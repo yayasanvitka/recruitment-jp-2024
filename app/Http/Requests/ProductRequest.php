@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class ProductRequest extends FormRequest
     public function authorize(): bool
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return Auth::check() || backpack_auth()->check();
     }
 
     /**
@@ -25,7 +26,7 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'required|unique:products,code,'.$this->id,
+            'code' => 'required|unique:products,code,' . ($this->id ?? $this->product->id ?? null),
             'name' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
             'supplier_id' => 'required|exists:suppliers,id',

@@ -23,7 +23,7 @@ class Product extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
-    // protected $hidden = [];
+    protected $hidden = ['category_id', 'supplier_id', 'pivot'];
 
     /*
     |--------------------------------------------------------------------------
@@ -39,6 +39,16 @@ class Product extends Model
     public function warehouses()
     {
         return $this->belongsToMany(Warehouse::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
     }
 
     /*

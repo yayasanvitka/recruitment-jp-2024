@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class SupplierRequest extends FormRequest
 {
@@ -11,10 +12,10 @@ class SupplierRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return Auth::check() || backpack_auth()->check();
     }
 
     /**
@@ -25,7 +26,7 @@ class SupplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:suppliers,name',
+            'name' => 'required|unique:suppliers,name,'. ($this->id ?? $this->supplier->id ?? null),
         ];
     }
 

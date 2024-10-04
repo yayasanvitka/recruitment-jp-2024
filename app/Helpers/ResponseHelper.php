@@ -19,6 +19,10 @@ class ResponseHelper
             'data' => $data 
         ];
 
+        if(is_array($data)) {
+            $response['count'] = count($data);
+        }
+
         return response()->json($response, statusCode::OK);
     }
 

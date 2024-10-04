@@ -16,7 +16,7 @@ class WarehouseController extends Controller
 
             $message = $warehouses->isNotEmpty() ? 'Warehouse found' : 'Warehouse not found';
 
-            return ResponseHelper::returnOkResponse($message, $warehouses);
+            return ResponseHelper::returnOkResponse($message, $warehouses, true);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }

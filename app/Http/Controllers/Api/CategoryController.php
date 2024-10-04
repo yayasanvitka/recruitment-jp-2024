@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
             $message = $categories->isNotEmpty() ? 'Category found' : 'Category not found';
 
-            return ResponseHelper::returnOkResponse($message, $categories);
+            return ResponseHelper::returnOkResponse($message, $categories, true);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }

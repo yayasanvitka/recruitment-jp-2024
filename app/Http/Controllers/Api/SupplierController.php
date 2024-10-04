@@ -16,7 +16,7 @@ class SupplierController extends Controller
 
             $message = $suppliers->isNotEmpty() ? 'Supplier found' : 'Supplier not found';
 
-            return ResponseHelper::returnOkResponse($message, $suppliers);
+            return ResponseHelper::returnOkResponse($message, $suppliers, true);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }

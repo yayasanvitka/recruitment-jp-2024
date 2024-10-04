@@ -13,13 +13,13 @@ enum statusCode  {
 
 class ResponseHelper
 {
-    public static function returnOkResponse($message, $data) {
+    public static function returnOkResponse($message, $data, $returnCount = false) {
         $response = [
             'message' => $message,
             'data' => $data 
         ];
 
-        if(is_array($data)) {
+        if($returnCount) {
             $response['count'] = count($data);
         }
 

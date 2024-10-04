@@ -16,7 +16,7 @@ class ProductController extends Controller
 
             $message = $products->isNotEmpty() ? 'Product found' : 'Product not found';
 
-            return ResponseHelper::returnOkResponse($message, $products);
+            return ResponseHelper::returnOkResponse($message, $products, true);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }

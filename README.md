@@ -28,40 +28,40 @@ Maksimal 7 Hari setelah soal diberikan. **Lebih cepat lebih baik**
 
 ![image](https://github.com/user-attachments/assets/196777aa-b38b-47f2-9713-d396cd5c58b3)
 
-Aplikasi ini digunakan untuk pendataan dan sudah ada fitur berikut:
+Aplikasi ini digunakan untuk pendataan dan memiliki fitur sebagai berikut:
 
 1. CRUD untuk Supplier
    - Terdapat operasi Create, Read, Update, dan Delete untuk Supplier.
 
-2. CRUD untuk Kategori
-   - Terdapat operasi Create, Read, Update, dan Delete untuk Kategori.
+2. CRUD untuk Category
+   - Terdapat operasi Create, Read, Update, dan Delete untuk Category.
 
-3. CRUD untuk Produk
-   - Terdapat operasi Create, Read, Update, dan Delete untuk Produk.
-   - Pada form produk, dapat memilih Supplier dan Kategori.
-   - Setiap produk terhubung dengan satu Supplier dan satu Kategori.
+3. CRUD untuk Product
+   - Terdapat operasi Create, Read, Update, dan Delete untuk Product.
+   - Pada form Product, dapat memilih Supplier dan Category.
+   - Setiap Product terhubung dengan satu Supplier dan satu Categori.
 
-4. CRUD untuk Warehouse (Challenge)
+4. CRUD untuk Warehouse
    - Terdapat operasi Create, Read, Update, dan Delete untuk Warehouse.
-   - Fitur untuk mengelola produk di setiap warehouse:
-     **a.** Menambahkan produk ke warehouse; 
-     **b.** Menghapus produk dari warehouse; 
-     **c.** Menampilkan daftar produk yang tersedia di setiap warehouse.
+   - Fitur untuk mengelola product di setiap warehouse:
+     **a.** Menambahkan product  ke warehouse; 
+     **b.** Menghapus product  dari warehouse; 
+     **c.** Menampilkan daftar product yang tersedia di setiap warehouse.
 
 ### Challenge Detail
 
 <hr>
-Kamu diminta menggunakan BACKPACK untuk membuat fitur no 4 pada 'Detail Tentang Aplikasi' dengan detail:
+Kamu diminta menggunakan [BackPack](https://backpackforlaravel.com/docs) untuk membuat fitur no 4 pada 'Detail Tentang Aplikasi' dengan detail:
 
 1. Buat Migrasi, Model dan CRUD untuk Warehouses. Tabel ini hanya memiliki column `name` selain primary dan timestamp.
 2. Relasikan products dengan warehouses (implementasikan relasi database dan CRUD,_many-to-many_) dan intermediate
-   table_product_warehouse, sesuaikan dengan penjelasan fitur no 4 pada 'Detail Tentang Aplikasi'.
+   table product_warehouse, sesuaikan dengan penjelasan fitur no 4 pada 'Detail Tentang Aplikasi'.
 3. Tambahkan validasi form ketika create dan update pada Products dan Warehouse yang sesuai pada model masing-masing.
-4. Tambahkan fitur filters (berdasarkan kategori dan supplier) pada halaman products.
+4. Tambahkan filters (berdasarkan Category dan Supplier) pada halaman Products.
 
 Bonus Quest:
 
-5. Buat API untuk data products dengan format API: `{“data”:[[…], […], …], “count”:X}` menggunakan BACKPACK
+5. Buat API untuk data Products dengan format API: `{“data”:[[…], […], …], “count”:X}`.
 
 Silahkan fork repositori ini, jalankan migrasi database, dan seeder untuk user.
 

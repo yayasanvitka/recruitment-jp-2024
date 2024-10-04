@@ -39,7 +39,7 @@ Aplikasi ini digunakan untuk pendataan dan memiliki fitur sebagai berikut:
 3. CRUD untuk Product
    - Terdapat operasi Create, Read, Update, dan Delete untuk Product.
    - Pada form Product, dapat memilih Supplier dan Category.
-   - Setiap Product terhubung dengan satu Supplier dan satu Categori.
+   - Setiap Product terhubung dengan satu Supplier dan satu Category.
 
 4. CRUD untuk Warehouse
    - Terdapat operasi Create, Read, Update, dan Delete untuk Warehouse.

@@ -26,6 +26,8 @@ class WarehouseController extends Controller
         try {
             $warehouse->load(["products"]);
 
+            $warehouse["product_count"] = $warehouse->products->count();
+
             return ResponseHelper::returnOkResponse("Warehouse found", $warehouse);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);

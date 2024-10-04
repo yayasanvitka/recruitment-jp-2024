@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function all(Request $request) {
         try {
-            $products = Product::all();
+            $products = Product::with(["category", "supplier"])->get();
 
             $message = $products->isNotEmpty() ? 'Product found' : 'Product not found';
 
@@ -24,6 +24,8 @@ class ProductController extends Controller
 
     public function detail(Product $product) {
         try {
+            $product->load(["category", "supplier"]);
+
             return ResponseHelper::returnOkResponse("Product found", $product);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
@@ -35,6 +37,8 @@ class ProductController extends Controller
             $validated = $request->validated();
 
             $newProduct = Product::create($validated);
+
+            $newProduct->load(["category", "supplier"]);
 
             return ResponseHelper::returnOkResponse("Product created successfully", $newProduct);
         } catch (\Throwable $th) {
@@ -48,6 +52,8 @@ class ProductController extends Controller
 
             $product->update($validated);
 
+            $product->load(["category", "supplier"]);
+
             return ResponseHelper::returnOkResponse("Product updated successfully", $product);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
@@ -57,6 +63,8 @@ class ProductController extends Controller
     public function delete(Product $product) {
         try {
             $product->delete();
+
+            $product->load(["category", "supplier"]);
 
             return ResponseHelper::returnOkResponse("Product deleted successfully", $product);
         } catch (\Throwable $th) {

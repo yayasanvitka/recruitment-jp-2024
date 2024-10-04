@@ -24,6 +24,8 @@ class WarehouseController extends Controller
 
     public function detail(Warehouse $warehouse) {
         try {
+            $warehouse->load(["products"]);
+
             return ResponseHelper::returnOkResponse("Warehouse found", $warehouse);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
@@ -35,6 +37,12 @@ class WarehouseController extends Controller
             $validated = $request->validated();
 
             $newWareHouse = Warehouse::create($validated);
+
+            if(count($validated['products']) > 0) {
+                $newWareHouse->products()->sync($validated['products']);
+            }
+
+            $newWareHouse->load("products");
 
             return ResponseHelper::returnOkResponse("Warehouse created successfully", $newWareHouse);
         } catch (\Throwable $th) {
@@ -48,6 +56,12 @@ class WarehouseController extends Controller
 
             $warehouse->update($validated);
 
+            if(count($validated['products']) > 0) {
+                $warehouse->products()->sync($validated['products']);
+            }
+
+            $warehouse->load("products");
+
             return ResponseHelper::returnOkResponse("Warehouse updated successfully", $warehouse);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
@@ -56,6 +70,8 @@ class WarehouseController extends Controller
 
     public function delete(Warehouse $warehouse) {
         try {
+            $warehouse->products()->detach();
+
             $warehouse->delete();
 
             return ResponseHelper::returnOkResponse("Warehouse deleted successfully", $warehouse);

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class WarehouseRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class WarehouseRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return Auth::check() || backpack_auth()->check();
     }
 
     /**
@@ -26,7 +27,7 @@ class WarehouseRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'products' => 'nullable|exists:products,id',
+            'products' => 'nullable|array|exists:products,id',
         ];
     }
 

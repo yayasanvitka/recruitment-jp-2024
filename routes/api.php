@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\WarehouseController;
 
 Route::post('/login', [AuthController::class, 'login']); // POST /login
 
@@ -35,5 +36,15 @@ Route::prefix("products")->middleware("auth:sanctum")->group(function () {
         Route::get("/{product}", [ProductController::class, "detail"]); // GET /products/{product}
         Route::put("/{product}", [ProductController::class, "update"]); // PUT /products/{product}
         Route::delete("/{product}", [ProductController::class, "delete"]); // DELETE /products/{product}
+    });  
+});
+
+Route::prefix("warehouses")->middleware("auth:sanctum")->group(function () {
+    Route::prefix("/v1")->group(function () { 
+        Route::get("/", [WarehouseController::class, "all"]); // GET /warehouses
+        Route::post("/", [WarehouseController::class, "create"]); // POST /warehouses
+        Route::get("/{warehouse}", [WarehouseController::class, "detail"]); // GET /warehouses/{warehouse}
+        Route::put("/{warehouse}", [WarehouseController::class, "update"]); // PUT /warehouses/{warehouse}
+        Route::delete("/{warehouse}", [WarehouseController::class, "delete"]); // DELETE /warehouses/{warehouse}
     });  
 });

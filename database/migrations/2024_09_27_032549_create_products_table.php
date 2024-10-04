@@ -22,6 +22,11 @@ return new class extends Migration {
                 ->references('id')
                 ->on('categories')
                 ->onDelete('restrict');
+
+            $table->foreign('supplier_id')
+                ->references('id')
+                ->on('suppliers')
+                ->onDelete('restrict');
         });
     }
 

@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class WarehouseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         // only allow updates if the user is logged in
         return backpack_auth()->check();
@@ -22,13 +22,11 @@ class ProductRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'code' => 'required|unique:products,code,'.$this->id,
             'name' => 'required|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'supplier_id' => 'required|exists:suppliers,id',
+            'products' => 'nullable|exists:products,id',
         ];
     }
 
@@ -37,7 +35,7 @@ class ProductRequest extends FormRequest
      *
      * @return array
      */
-    public function attributes(): array
+    public function attributes()
     {
         return [
             //
@@ -49,11 +47,10 @@ class ProductRequest extends FormRequest
      *
      * @return array
      */
-    public function messages(): array
+    public function messages()
     {
         return [
             //
         ];
     }
-
 }

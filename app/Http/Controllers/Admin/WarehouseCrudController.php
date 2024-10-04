@@ -57,20 +57,20 @@ class WarehouseCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(WarehouseRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
-
-        CRUD::field([
-            'label' => "Products",
-            'type' => 'select_multiple',
-            'name' => 'products', 
-            'entity' => 'products', 
-            'attribute' => 'name',
-            'pivot' => true,
+        CRUD::addFields([
+            [
+                'name' => 'name', 
+                'label' => "Name",
+                'type' => 'text',
+            ],
+            [
+                'label' => "Products",
+                'type' => 'select_multiple',
+                'name' => 'products', 
+                'entity' => 'products', 
+                'attribute' => 'name',
+                'pivot' => true,
+            ]
         ]);
     }
 
@@ -83,14 +83,5 @@ class WarehouseCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-
-        CRUD::field([
-            'label' => "Products",
-            'type' => 'select_multiple',
-            'name' => 'products', 
-            'entity' => 'products', 
-            'attribute' => 'name',
-            'pivot' => true,
-        ]);
     }
 }

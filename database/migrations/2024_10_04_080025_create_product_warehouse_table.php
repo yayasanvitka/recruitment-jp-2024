@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('product_warehouse', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('restrict');
-            $table->foreignId('warehouse_id')->constrained()->onDelete('restrict');
+            $table->foreignId('warehouse_id')->constrained();
             $table->timestamps();
-            
+
             $table->unique(['product_id', 'warehouse_id']);
         });
     }

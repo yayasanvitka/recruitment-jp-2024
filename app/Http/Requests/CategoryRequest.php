@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class CategoryRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return Auth::check() || backpack_auth()->check();
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:categories,name',
+            'name' => 'required|unique:categories,name,' . ($this->id ?? $this->category->id ?? null),
         ];
     }
 

@@ -26,7 +26,6 @@ return Application::configure(basePath: dirname(__DIR__))
                     $modelName = $matches[1];
 
                     return response()->json([
-                        'success' => false,
                         'message' =>  $modelName . ' not found.',
                     ], 404);
                 }

@@ -40,7 +40,7 @@ class ProductController extends Controller
 
             $newProduct->load(["category", "supplier"]);
 
-            return ResponseHelper::returnOkResponse("Product created successfully", $newProduct);
+            return ResponseHelper::returnCreatedResponse("Product created successfully", $newProduct);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }

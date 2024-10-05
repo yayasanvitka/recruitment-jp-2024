@@ -40,13 +40,13 @@ class WarehouseController extends Controller
 
             $newWareHouse = Warehouse::create($validated);
 
-            if(count($validated['products']) > 0) {
+            if(!empty($validated['products'])) {
                 $newWareHouse->products()->sync($validated['products']);
             }
 
             $newWareHouse->load("products");
 
-            return ResponseHelper::returnOkResponse("Warehouse created successfully", $newWareHouse);
+            return ResponseHelper::returnCreatedResponse("Warehouse created successfully", $newWareHouse);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }
@@ -58,7 +58,7 @@ class WarehouseController extends Controller
 
             $warehouse->update($validated);
 
-            if(count($validated['products']) > 0) {
+            if(!empty($validated['products'])) {
                 $warehouse->products()->sync($validated['products']);
             }
 

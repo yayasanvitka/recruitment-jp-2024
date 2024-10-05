@@ -1,0 +1,13 @@
+.filter_form {
+    margin-top: 32px;
+    margin-bottom: 64px;
+}
+
+.filter_form button {
+    color:white;
+    background-color: var(--tblr-primary);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    width: 100%;
+}

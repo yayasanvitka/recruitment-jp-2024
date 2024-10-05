@@ -36,7 +36,7 @@ class SupplierController extends Controller
 
             $newSupplier = Supplier::create($validated);
 
-            return ResponseHelper::returnOkResponse("Supplier created successfully", $newSupplier);
+            return ResponseHelper::returnCreatedResponse("Supplier created successfully", $newSupplier);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }

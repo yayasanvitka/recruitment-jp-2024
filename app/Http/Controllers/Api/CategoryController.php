@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
             $newCategory = Category::create($validated);
 
-            return ResponseHelper::returnOkResponse("Category created successfully", $newCategory);
+            return ResponseHelper::returnCreatedResponse("Category created successfully", $newCategory);
         } catch (\Throwable $th) {
             return ResponseHelper::throwInternalError($th);
         }
